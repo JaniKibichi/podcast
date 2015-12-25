@@ -5,12 +5,12 @@
   <nav>
    <ul>
     <% unless journey_signed_in %>
-    <li><a href="podcasts.html"></a>Explore</li>
+    <li> <%= link_to "Explore", journeys_path %></li>
     <li><%= link_to "Sign In", new_journey_session_path %></li>
     <li><%= link_to "Start your Journey", new_journey_registration_path %></li>
     <% else %>
     <li><a href="#"></a>Dashboard</li>
-    <li><a href="#"></a>Explore</li>
+    <li> <%= link_to "Explore", journeys_path, class: "button button_white" %></li>
     <li><%= link_to "Sign Out", destroy_journey_session_path, method: :delete %></li>
     <% end %>
    </ul>
@@ -20,6 +20,6 @@
  <div class="wrapper_skinny">
  <h1>Follow a mum's journey, or create your own.</h1>
  <%= link_to "Start your Journey", new_journey_registration_path, class: "button button_highlight" %>
- <a href="#" class="button button_white">Explore</a>
+ <%= link_to "Explore", journeys_path, class: "button button_white" %>
  </div>
 </div>
