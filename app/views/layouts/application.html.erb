@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Podcast</title>
+  <title>Mama's Connect</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+    <% if notice %>
+       <p class="notice"><%= notice %></p>
+    <% elsif alert %>
+       <p class="alert"><%= alert %></p>
+    <% end %>
 <%= yield %>
 
 </body>
