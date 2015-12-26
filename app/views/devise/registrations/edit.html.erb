@@ -1,22 +1,22 @@
   <div id="podcast_show">
    <div id="show_banner">
     <div class="wrapper_skinny">
-       <h1>Ciiru's Journey Dashboard</h1>
+       <h1><%= @journey.title %> Dashboard</h1>
     </div>      
    </div>
    <div id="links">
      <div class="wrapper_skinny">
       <ul>
-        <li>Episodes</li>
-        <li><a href="#">New Episode</a></li>
-        <li><% link_to "Account Settings", edit_journey_registration_path, class: "current" %></li>
-        <li><a href="#">View Journey</a></li>    
+        <li><%= link_to "Episodes", root_path %></li>
+        <li><%= link_to "New Episode", new_journey_episode_path(@journey, episode) %></li>
+        <li><% link_to "Account Settings", edit_journey_registration_path %></li>
+        <li><%= link_to "View Journey", journey_path(current_journey) %></li>    
       </ul>	
      </div> 
     </div>
    </div>
 
-<div id="episodes">
+<div id="form">
 <div class="wrapper_skinny">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -30,6 +30,11 @@
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :thumbnail %><br />
+    <%= f.file_field :thumbnail %>
   </div>
 
   <div class="field">

@@ -8,7 +8,7 @@
    <% @journeys.each do |journey| %>
     <% link_to journey do %>
     <li>
-     <img src="images/episode1.jpg" alt="Ciiru's Journey ">
+     <%= image_tag journey.thumbnail.url(:medium) %>
       <div class="podcast_overview">
       <h2><%= journey.title %></h2>
        <p class="episode_count"> 1 episode</p>

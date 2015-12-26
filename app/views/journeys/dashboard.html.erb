@@ -1,7 +1,7 @@
   <div id="podcast_show">
    <div id="show_banner">
     <div class="wrapper_skinny">
-       <h1>Ciiru's Journey Dashboard</h1>
+       <h1><%= @journey.title %> Dashboard</h1>
     </div>
    </div>
    <div id="links">
@@ -22,7 +22,7 @@
             <li class="cf">
               <div class="episode_thumbnail">
                  <a href="episode.html">
-                   <img src="images/ciiru_awesome.png">
+                  <%= image_tag episode.episode_thumbnail.url(:medium) %>
                  </a>
               </div>
               <div class="episode_overview">

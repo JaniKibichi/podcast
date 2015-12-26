@@ -1,11 +1,10 @@
-
     <div id="podcast_show">
      <div id="show_banner">
      	<div class="wrapper_skinny">
          <h1><%= @journey.title %></h1>
-	       <p class="description"><%= @journey.description %></p>
+               <p class="description"><%= @journey.description %></p>
                <% unless @journey.blog.blank? %>
-	        <a href="<%= @journey.blog %>" class="subscribe_link">blog</a>
+                <a href="<%= @journey.blog %>" class="subscribe_link">blog</a>
                <% end %>
                <% unless @journey.facebook.blank? %>
                 <a href="<%= @journey.facebook %>" class="subscribe_link">facebook</a>
@@ -16,33 +15,44 @@
                <% end %>
      	</div>      
      </div>
-
      <div id="breadcrumb">
-      <%= link_to journeys_path do %>
-        All podcasts
+       <%= link_to journeys_path do %>
+       	All podcasts
+       	<span>/</span> 
+       <%= link_to @journey.title, journey_path(@journey) %>
         <span>/</span>
-        Ciiru's Journey
-      <% end %>
+        <%=@episode.title %>
+       <% end %>
      </div>
+
+     <div id="episode_content">
+     	<div class="wrapper_skinny">
+          <%= image_tag @episode.episode_thumbnail.url(:medium), class="current_episode_thumbnail" %> 
+          <h2><%=@episode.title %></h2>
+          <p class="description">
+              <%=@episode.description %> 
+          </p>
+     	</div>
+     </div>	 
 
      <div id="episodes">
         <div class="wrapper_skinny">
           <ul class="cf">
-           <% @episodes.each do |episode| %>
+           <% @episodes.each do |episode| %> 
             <li class="cf">
               <div class="episode_thumbnail">
-                 <a href="#">
+                 <a href="episode.html">
                   <%= image_tag episode.episode_thumbnail.url(:medium) %>
                  </a>
               </div>
               <div class="episode_overview">
-                <h2><%= link_to episode.title, journey_episode_path(@journey, episode) %></h2> 	
+                <h2><%= link_to episode.title, journey_episode_path(@journey, episode) %></h2>
                  <p class="description">
                  <% truncate(episode.description, length: 160) %>
-                 </p>
+                 </p>     
               </div>	
             </li>
-           <% end %>
+          <% end %>
           </ul>
         </div>
      </div>
@@ -56,3 +66,4 @@
  <a href="#">2</a>
  <a class="next_page" href="#">Next</a>
 </div>
+
