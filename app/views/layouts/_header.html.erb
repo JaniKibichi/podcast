@@ -1,0 +1,20 @@
+ <header id="main_header" class="cf">
+ <div class="wrapper_wide">
+ <%= link_to "Mamas.Connect", root_path, id:"logo" %>
+
+  <nav>
+   <ul>
+    <% unless journey_signed_in? %>
+    <li><%= link_to "Explore", journeys_path %></li>
+    <li><%= link_to "Sign In", new_journey_session_path %></li>
+    <li><%= link_to "Start your Journey", new_journey_registration_path %></li>
+    <% else %>
+    <li><%= link_to "Dashboard", root_path %></li>
+    <li><%= link_to "Explore", journeys_path %></li>
+    <li><%= link_to "Sign Out", destroy_journey_session_path, method: :delete %></li>
+    <% end %>
+   </ul>
+  </nav>
+ </div>
+ </header>
+
