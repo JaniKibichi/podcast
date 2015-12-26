@@ -1,4 +1,6 @@
 class EpisodesController < ApplicationController
+ before_action :authenticate_journey!, except: [:show]
+ before_filter :require_permission
  before_action :find_journey
  before_action :find_episode, only: [:show, :edit, :update, :destroy]
 
@@ -46,6 +48,13 @@ class EpisodesController < ApplicationController
 
  def find_episode
   @episode = Episode.find(params[:id])
+ end
+
+ def require_permission
+  @journey = Journey.find(params[:journey_id])
+  if current_journey != @journey
+   redirect_to root_path, notice: "Please sign up with the right credentials to view that post."
+  end
  end
 
 end
