@@ -1,6 +1,6 @@
 class EpisodesController < ApplicationController
  before_action :find_journey
- before_action :find_episode, only: [:show]
+ before_action :find_episode, only: [:show, :edit, :update, :destroy]
 
  def new
   @episode =@journey.episodes.new
@@ -17,6 +17,22 @@ class EpisodesController < ApplicationController
 
  def show
   @episode = Episode.where(journey_id: @journey.order("created_at desc").reject { |e| e.id ==@episode.id}  
+ end
+
+ def edit
+ end
+
+ def update
+  if @episode.update episode_params
+   redirect_to journey_episode_path(@journey, @episode), notice:"Episode was successfully updated!"
+  else
+   render 'edit'  
+  end
+ end
+
+ def destroy
+  @episode.destroy
+  redirect_to root_path
  end
 
  private
