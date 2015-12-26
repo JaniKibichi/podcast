@@ -3,7 +3,7 @@ class JourneysController < ApplicationController
  before_action :find_episode, only: [:show, :dashboard]
 
  def index
-  @journeys = Journey.all.order("created_at desc")
+  @journeys = Journey.all.order("created_at desc").paginate(:page => params[:page], :per_page => 12)
  end
 
  def show
@@ -14,7 +14,7 @@ class JourneysController < ApplicationController
 
  private
  def find_episode
-  @episodes = Episode.where(journey_id: @journey).order("created_at desc")  
+  @episodes = Episode.where(journey_id: @journey).order("created_at desc").paginate(:page => params[:page], :per_page => 5)
  end
 
  def find_journey

@@ -4,7 +4,7 @@
 
  <div id="podcasts" class="cf">
   <div class="wrapper">
-   <ul>
+   <ul class="cf">
    <% @journeys.each do |journey| %>
     <% link_to journey do %>
     <li>
@@ -17,5 +17,6 @@
    <% end %>
   <% end %>
   </ul>
+   <%= will_paginate @journey %>
    </div>
  </div>
