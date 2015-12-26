@@ -1,0 +1,54 @@
+  <div id="podcast_show">
+   <div id="show_banner">
+    <div class="wrapper_skinny">
+       <h1>Ciiru's Journey Dashboard</h1>
+    </div>
+   </div>
+   <div id="links">
+     <div class="wrapper_skinny">
+      <ul>
+        <li><%= link_to "Episodes", root_path %></li>
+        <li><%= link_to "New Episode", new_journey_episode_path(@journey, episode) %></li>
+        <li><% link_to "Account Settings", edit_journey_registration_path %></li>
+        <li><%= link_to "View Journey", journey_path(current_journey) %></li>
+      </ul>
+     </div>
+    </div>
+
+     <div id="episodes">
+        <div class="wrapper_skinny">
+          <ul class="cf">
+            <% @episodes.each do |episode| %>
+            <li class="cf">
+              <div class="episode_thumbnail">
+                 <a href="episode.html">
+                   <img src="images/ciiru_awesome.png">
+                 </a>
+              </div>
+              <div class="episode_overview">
+                <h2><%= link_to episode.title, journey_episode_path(@journey, episode) %></h2> 	
+                 <p class="description">
+                   <%= truncate(episode.description, length:160) %>
+                 </p>
+               <div class="authorized_links">
+                 <%= link_to "Edit", edit_journey_episode_path(@journey, episode) %>
+                 <%= link_to "Delete", journey_episode_path(@journey, episode), method: :delete, data: {confirm: "Are you sure?"} %>         
+               </div>
+              </div>	
+            </li>
+           <% end %>
+          </ul>
+        </div>
+     </div>
+    </div>
+
+  </div>
+
+<div class="pagination">
+ <span class="previous_page disabled">
+ 	previous
+ </span>
+ <em class="current">1</em>
+ <a href="#">2</a>
+ <a class="next_page" href="#">Next</a>
+</div>

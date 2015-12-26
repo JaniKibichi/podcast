@@ -5,4 +5,10 @@ Rails.application.routes.draw do
   resources :journeys, only: [:index, :show] do
    resources :episodes
   end
+ 
+  authenticated :journey do
+   root 'journeys#dashboard', as: "authenticated_root"
+  end
+
+  root 'welcome#index'
 end

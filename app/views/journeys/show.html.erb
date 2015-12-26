@@ -1,0 +1,58 @@
+
+    <div id="podcast_show">
+     <div id="show_banner">
+     	<div class="wrapper_skinny">
+         <h1><%= @journey.title %></h1>
+	       <p class="description"><%= @journey.description %></p>
+               <% unless @journey.blog.blank? %>
+	        <a href="<%= @journey.blog %>" class="subscribe_link">blog</a>
+               <% end %>
+               <% unless @journey.facebook.blank? %>
+                <a href="<%= @journey.facebook %>" class="subscribe_link">facebook</a>
+               <% end %>
+
+               <% unless @journey.twitter.blank? %>
+                <a href="<%= @journey.twitter %>" class="subscribe_link">twitter</a>
+               <% end %>
+     	</div>      
+     </div>
+
+     <div id="breadcrumb">
+      <%= link_to journeys_path do %>
+        All podcasts
+        <span>/</span>
+        Ciiru's Journey
+      <% end %>
+     </div>
+
+     <div id="episodes">
+        <div class="wrapper_skinny">
+          <ul class="cf">
+           <% @episodes.each do |episode| %>
+            <li class="cf">
+              <div class="episode_thumbnail">
+                 <a href="#">
+                   <img src="images/ciiru_awesome.png" alt="ciiru">
+                 </a>
+              </div>
+              <div class="episode_overview">
+                <h2><%= link_to episode.title, journey_episode_path(@journey, episode) %></h2> 	
+                 <p class="description">
+                 <% truncate(episode.description, length: 160) %>
+                 </p>
+              </div>	
+            </li>
+           <% end %>
+          </ul>
+        </div>
+     </div>
+    </div>
+
+<div class="pagination">
+ <span class="previous_page disabled">
+ 	previous
+ </span>
+ <em class="current">1</em>
+ <a href="#">2</a>
+ <a class="next_page" href="#">Next</a>
+</div>

@@ -4,7 +4,7 @@
  <a href="index.html" id="logo">Mamas.Connect</a>
   <nav>
    <ul>
-    <% unless journey_signed_in %>
+    <% unless journey_signed_in? %>
     <li> <%= link_to "Explore", journeys_path %></li>
     <li><%= link_to "Sign In", new_journey_session_path %></li>
     <li><%= link_to "Start your Journey", new_journey_registration_path %></li>

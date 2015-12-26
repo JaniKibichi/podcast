@@ -1,0 +1,21 @@
+ <div id="banner" class="podcasts_banner">
+    <h1>Discover an inspiring mum's journey.</h1>
+ </div>
+
+ <div id="podcasts" class="cf">
+  <div class="wrapper">
+   <ul>
+   <% @journeys.each do |journey| %>
+    <% link_to journey do %>
+    <li>
+     <img src="images/episode1.jpg" alt="Ciiru's Journey ">
+      <div class="podcast_overview">
+      <h2><%= journey.title %></h2>
+       <p class="episode_count"> 1 episode</p>
+      </div>
+    </li>
+   <% end %>
+  <% end %>
+  </ul>
+   </div>
+ </div>
