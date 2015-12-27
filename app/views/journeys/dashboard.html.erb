@@ -23,7 +23,7 @@
             <% @episodes.each do |episode| %>
             <li class="cf">
               <div class="episode_thumbnail">
-                 <a href="episode.html">
+                 <a href="<%= link_to episode.title, journey_episode_path(@journey, episode) %>">
                   <%= image_tag episode.episode_thumbnail.url(:medium) %>
                  </a>
               </div>
