@@ -45,7 +45,7 @@
 }
 
 #podcast_show{
-	show_banner{
+	#show_banner{
 	 background: $dark;
 	 text-align: center;
 	 padding: 5rem 0;
@@ -263,7 +263,7 @@ a{
 }
 
 .jp-volume-bar-value{
-	backround-color: #fff;
+	background-color: #fff;
 	height: 8px;
 	border-radius: 20px 20px 20px 20px;
 }
