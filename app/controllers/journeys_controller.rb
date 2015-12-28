@@ -1,6 +1,6 @@
 class JourneysController < ApplicationController
  before_action :find_journey, only: [:show, :dashboard]
- before_action :find_episode, only: [:show, :dashboard]
+ before_action :find_episode, only: [:index, :show, :dashboard]
 
  def index
   @journeys = Journey.all.order("created_at desc").paginate(:page => params[:page], :per_page => 12)

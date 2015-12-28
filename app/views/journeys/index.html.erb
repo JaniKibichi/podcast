@@ -11,7 +11,7 @@
      <%= image_tag journey.thumbnail.url(:medium) %>
       <div class="podcast_overview">
       <h2><%= journey.title %></h2>
-       <p class="episode_count"><%= journey.episode.count %></p>
+       <p class="episode_count"><%= @episodes.count %></p>
       </div>
     </li>
    <% end %>
