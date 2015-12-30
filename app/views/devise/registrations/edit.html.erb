@@ -8,7 +8,7 @@
      <div class="wrapper_skinny">
       <ul>
         <li><%= link_to "Episodes", root_path %></li>
-        <li><%= link_to "New Episode", new_journey_episode_path(@journey, episode) %></li>
+        <li><%= link_to "New Episode", new_journey_episode_path(@journey, @episode) %></li>
         <li><% link_to "Account Settings", edit_journey_registration_path %></li>
         <li><%= link_to "View Journey", journey_path(current_journey) %></li>    
       </ul>	
@@ -58,7 +58,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :Twitter handle %><br />
+    <%= f.label :Twitter_handle %><br />
     <%= f.text_field :twitter %>
   </div>
 
@@ -79,7 +79,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update," class: "button button_highlight button_block" %>
+    <%= f.submit "Update", class: "button button_highlight button_block" %>
   </div>
 <% end %>
 
