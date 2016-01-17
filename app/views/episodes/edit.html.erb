@@ -8,7 +8,7 @@
      <div class="wrapper_skinny">
       <ul>
         <li><%= link_to "Episodes", root_path %></li>
-        <li><%= link_to "New Episode", new_journey_episode_path(@journey, episode), class: "current" %></li>
+        <li><%= link_to "New Episode", new_journey_episode_path(@journey, @episode) %></li>
         <li><%= link_to "Account Settings", edit_journey_registration_path %></li>
         <li><%= link_to "View Journey", journey_path(current_journey) %></li>
       </ul>

@@ -17,18 +17,18 @@
      </div>
      <div id="breadcrumb">
        <%= link_to journeys_path do %>
-       	All podcasts
+       	All Journeys 
        	<span>/</span> 
        <%= link_to @journey.title, journey_path(@journey) %>
         <span>/</span>
-        <%=@episode.title %>
+        <%= @episode.title %>
        <% end %>
-     </div>
+    </div>
 
      <div id="episode_content">
      	<div class="wrapper_skinny">
-          <%= image_tag @episode.episode_thumbnail.url(:medium), class="current_episode_thumbnail" %> 
-          <h2><%=@episode.title %></h2>
+          <%= image_tag @episode.episode_thumbnail.url(:medium), :class => "current_episode_thumbnail" %> 
+          <h2><%= @episode.title %></h2>
           <p class="description">
               <%=@episode.description %> 
           </p>
@@ -80,7 +80,7 @@
               <div class="episode_overview">
                 <h2><%= link_to episode.title, journey_episode_path(@journey, episode) %></h2>
                  <p class="description">
-                 <% truncate(episode.description, length: 160) %>
+                 <%= truncate(episode.description, length: 160) %>
                  </p>     
               </div>	
             </li>
@@ -89,8 +89,6 @@
         </div>
      </div>
     </div>
-
-   <%= will_paginate @episode %>
 
  <script>
     $(document).ready(function(){

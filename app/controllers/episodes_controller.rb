@@ -10,7 +10,7 @@ class EpisodesController < ApplicationController
 
  def create
   @episode = @journey.episodes.new episode_params
-  if episode.save
+  if @episode.save
    redirect_to journey_episode_path(@journey, @episode)
   else
    render 'new'
@@ -18,7 +18,7 @@ class EpisodesController < ApplicationController
  end 
 
  def show
-  @episode = Episode.where(journey_id: @journey).order("created_at desc").limit(5).reject { |e| e.id ==@episode.id}  
+  @episodes = Episode.where(journey_id: @journey).order("created_at desc")
  end
 
  def edit

@@ -1,3 +1,4 @@
+
  <div id="banner" class="podcasts_banner">
     <h1>Discover an inspiring mum's journey.</h1>
  </div>
@@ -6,17 +7,17 @@
   <div class="wrapper">
    <ul class="cf">
    <% @journeys.each do |journey| %>
-    <% link_to journey do %>
+  <%= link_to journey_path(journey) do %>
     <li>
      <%= image_tag journey.thumbnail.url(:medium) %>
       <div class="podcast_overview">
       <h2><%= journey.title %></h2>
-       <p class="episode_count"><%= @episodes.count %></p>
+       <p class="episode_count"><%= @episodes.count %> posts.</p>
       </div>
     </li>
    <% end %>
-  <% end %>
+ <% end %>
   </ul>
-   <%= will_paginate @journey %>
+   <%= will_paginate @journeys %>
    </div>
  </div>

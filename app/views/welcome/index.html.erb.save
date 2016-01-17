@@ -1,0 +1,25 @@
+<div id="background">
+ <header class="cf">
+ <div class="wrapper_wide">
+ <a href="index.html" id="logo">Mamas.Connect</a>
+  <nav>
+   <ul>
+ney_signed_in? %>
+    <li> <%= link_to "Explore", journeys_path %></li>
+    <li><%= link_to "Sign In", new_journey_session_path %></li>
+    <li><%= link_to "Start your Journey", new_journey_registration_path %></li>
+    <% else %>
+    <li><a href="#"></a>Dashboard</li>
+    <li> <%= link_to "Explore", journeys_path, class: "button button_white" %></li>
+    <li><%= link_to "Sign Out", destroy_journey_session_path, method: :delete %></li>
+    <% end %>
+   </ul>
+  </nav>
+ </div>
+ </header>
+ <div class="wrapper_skinny">
+ <h1>Follow a mum's journey, or create your own.</h1>
+ <%= link_to "Start your Journey", new_journey_registration_path, class: "button button_highlight" %>
+ <%= link_to "Explore", journeys_path, class: "button button_white" %>
+ </div>
+</div>

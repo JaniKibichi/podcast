@@ -9,8 +9,8 @@
    <div id="links">
      <div class="wrapper_skinny">
       <ul>
-        <li><%= link_to "Episodes", root_path %></li>
-        <li><%= link_to "New Episode", new_journey_episode_path(@journey, @episode) %></li>
+        <li><%= link_to "Posts", root_path %></li>
+        <li><%= link_to "New Post", new_journey_episode_path(@journey, @episode), class: "current" %></li>
         <li><% link_to "Account Settings", edit_journey_registration_path %></li>
         <li><%= link_to "View Journey", journey_path(current_journey) %></li>
       </ul>
@@ -23,7 +23,7 @@
             <% @episodes.each do |episode| %>
             <li class="cf">
               <div class="episode_thumbnail">
-                 <a href="<%= link_to episode.title, journey_episode_path(@journey, episode) %>">
+                 <a href="episode.html">
                   <%= image_tag episode.episode_thumbnail.url(:medium) %>
                  </a>
               </div>

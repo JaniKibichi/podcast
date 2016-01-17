@@ -31,14 +31,14 @@
            <% @episodes.each do |episode| %>
             <li class="cf">
               <div class="episode_thumbnail">
-                 <a href="<%= link_to episode.title, journey_episode_path(@journey, episode) %>">
+                 <a href="episode.html">
                   <%= image_tag episode.episode_thumbnail.url(:medium) %>
                  </a>
               </div>
               <div class="episode_overview">
                 <h2><%= link_to episode.title, journey_episode_path(@journey, episode) %></h2> 	
                  <p class="description">
-                 <% truncate(episode.description, length: 160) %>
+                 <%= truncate( episode.description, length: 160) %>
                  </p>
               </div>	
             </li>
