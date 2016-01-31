@@ -1,0 +1,32 @@
+  <div id="podcast_show">
+   <div id="show_banner">
+    <div class="wrapper_skinny">
+       <h1>Article Collection<h1>
+    </div>
+   </div>
+
+<div id="links">
+     <div class="wrapper_skinny">
+      <ul>
+        <li><%= link_to "Inspiration", root_path %></li>
+        <li><%= link_to "New Article", new_post_path %></li>
+      </ul>
+
+<% @posts.each do |post| %>
+<div class="episode_overview">
+ <h3><%= link_to post.title, post %></h3>
+ <p class="date"><%= post.created_at.strftime("%A, %b %d") %></p>
+ <p class="description">
+   <%= truncate(post.content, length:160) %>
+ </p>
+</div>
+<% end %>
+<p>
+  <br><br>
+  <%= will_paginate @posts %>
+</p>
+</div>
+
+  </div>
+ </div>
+

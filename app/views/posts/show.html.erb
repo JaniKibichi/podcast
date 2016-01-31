@@ -1,0 +1,54 @@
+<div id="post_show_content" class="skinny_wrapper wrapper_padding">
+   <div id="postlinks">
+     <div class="wrapper_skinny">
+      <ul>
+        <li><%= link_to "Inspiration", root_path %></li>
+        <li><%= link_to "Articles", posts_path %></li>
+        <li><%= link_to "New Article", new_post_path %></li>
+      </ul>
+     </div>
+    </div>
+
+<header>
+<p class="date"><%= @post.created_at.strftime("%A, %b %d") %></p>
+<h1><%= @post.title %></h1>
+</header>
+<br>
+<div id="content">
+<%= markdown @post.content %>
+</div>
+
+<% if journey_signed_in? %>
+ <div id="admin_links">
+  <%= link_to "Edit", edit_post_path(@post) %>
+  <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to delete this post?"} %>
+ </div>
+<% end %>
+
+<hr>
+
+ <div id="share_box">
+  <p> Share <%= @post.title %></p>
+  <!-- Twitter -->
+  <a onlick="javascript:window.open('http://twitter.com/share?text=<%= @post.title %>
+ by @mamasconnect -&amp;url=<%= url_for([@post, {only_path: false}]) %>', '_blank',
+ 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-twitter"></i>
+  </a>
+
+  <!--Facebook-->
+  <a onlick="javascript:window.open('http://facebook.com/sharer.php?u=<%= url_for([@post, {only_path: false}]) %>', '_blank', 
+ 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-facebook"></i>
+  </a>
+
+  <!--Googleplus-->
+  <a onlick="javascript:window.open('http://plus.google.com/share?url=<%= url_for([@post, {only_path: false}]) %>', '_blank', 
+ 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-google-plus"></i>
+  </a>
+ </div>
+
+ <hr>
+
+  <%= render 'disqus' %>
+ </div>
+<br>
+<br>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160131143049) do
+ActiveRecord::Schema.define(version: 20160131154449) do
 
   create_table "episodes", force: :cascade do |t|
     t.string   "title"
@@ -81,8 +81,10 @@ ActiveRecord::Schema.define(version: 20160131143049) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
+    t.integer  "journey_id"
   end
 
+  add_index "posts", ["journey_id"], name: "index_posts_on_journey_id"
   add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true
 
 end

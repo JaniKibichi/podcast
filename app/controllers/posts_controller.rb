@@ -1,16 +1,17 @@
 class PostsController < ApplicationController
  before_action :find_post, only: [:show, :edit, :update, :destroy]
+ before_action :authenticate_journey!, except: [:index, :show]
 
  def index
   @posts = Post.all.order("created_at desc").paginate(:page => params[:page], :per_page => 7)
  end
 
  def new
-  @post = Post.new
+  @post = current_journey.posts.build
  end
 
  def create
-  @post = Post.new post_params
+  @post = current_journey.posts.build post_params
 
   if @post.save
     redirect_to @post, notice: "Thanks for your post"
