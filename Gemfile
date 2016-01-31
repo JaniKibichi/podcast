@@ -26,6 +26,9 @@ gem 'devise', '~>3.4.1'
 gem 'paperclip', '~>4.2.1'
 gem 'aws-sdk', '~>2.0.33'
 gem 'will_paginate', '~>3.0.7'
+gem 'pygments.rb', '~>0.6.0'
+gem 'redcarpet', '~>3.2.2'
+gem 'friendly_id', '~>5.1.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

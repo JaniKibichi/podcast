@@ -9,8 +9,9 @@
    <div id="links">
      <div class="wrapper_skinny">
       <ul>
-        <li><%= link_to "Posts", root_path %></li>
-        <li><%= link_to "New Post", new_journey_episode_path(@journey, @episode), class: "current" %></li>
+        <li><%= link_to "Inspiration", root_path %></li>
+        <li><%= link_to "New Inspiration", new_journey_episode_path(@journey, @episode), class: "current" %></li>
+        <li><%= link_to "Articles", posts_path %></li>
         <li><% link_to "Account Settings", edit_journey_registration_path %></li>
         <li><%= link_to "View Journey", journey_path(current_journey) %></li>
       </ul>

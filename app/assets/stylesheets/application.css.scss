@@ -3,11 +3,18 @@ $highlight: #d2674e;
 $dark: #22292e;
 $disabled: #EDEFF5;
 $lessDisabled: #C0C0C0;
-$light: #EDEFF5;
+$lighter:  #EDEFF5;
+$light: #9596ae;
 $welcome: #6F0054;
 
 body{
 	font-family: 'Open Sans', sans-serif;
+       a{
+         text-decoration: none;
+         &:hover{
+         color: $highlight;
+         }
+        }
 }
 
 .wrapper_wide{
@@ -204,3 +211,4 @@ textarea{
 @import 'normalize';
 @import 'welcome';
 @import 'podcasts';
+@import 'posts';
